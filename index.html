@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NewsVerify AI | Fake News Detector</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+   <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    
+        <!-- BACKGROUND EFFECTS-->
+   
+
+    <div class="background">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="grid"></div>
+    </div>
+
+
+ 
+       <!--  NAVBAR-->
+   
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">✦</div>
+
+            <div>
+                <h2> <span>NewsVerify AI</span></h2>
+                <small>News Intelligence</small>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#insights">Insights</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            AI ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- 
+         HERO SECTION
+     -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                <span>✦</span>
+                AI-POWERED NEWS INTELLIGENCE
+            </div>
+
+            <h1>
+                See Beyond the
+                <span>Headline.</span>
+            </h1>
+
+            <p>
+                Analyze news content with machine learning and
+                identify whether an article resembles fake or real
+                news based on learned textual patterns.
+            </p>
+
+        </section>
+
+
+        <!-- 
+             NEWS ANALYZER
+         -->
+
+        <section class="analyzer-section" id="analyzer">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="mini-label">NEWS ANALYZER</span>
+
+                    <h2>
+                        What do you want to
+                        <span>verify?</span>
+                    </h2>
+                </div>
+
+                <div class="secure-badge">
+                    <span>●</span>
+                    ML Model Ready
+                </div>
+
+            </div>
+            <!-- AI DISCLAIMER -->
+
+<div class="ai-disclaimer">
+    <div class="disclaimer-title">
+        ⓘ AI Disclaimer
+    </div>
+
+    <p>
+        Predictions are generated solely from the trained dataset.
+        This system does not use live internet data or verify news
+        from external sources.
+    </p>
+</div>
+
+
+            <!-- INPUT CARD -->
+
+            <div class="input-card">
+
+                <div class="input-top">
+
+                    <div class="input-title">
+                        <div class="article-icon">▤</div>
+
+                        <div>
+                            <h3>News Article</h3>
+                            <p>Paste the headline or article text below</p>
+                        </div>
+                    </div>
+
+                    <span id="characterCount">0 characters</span>
+
+                </div>
+
+
+                <textarea
+                    id="newsInput"
+                    placeholder="Paste your news article here...
+
+Example:
+The government announced a new policy today..."
+                    maxlength="10000"
+                ></textarea>
+
+
+                <div class="input-bottom">
+
+                    <button
+                        class="clear-btn"
+                        id="clearBtn"
+                        type="button"
+                    >
+                        ↻ Clear
+                    </button>
+
+                    <button
+                        class="analyze-btn"
+                        id="analyzeBtn"
+                        type="button"
+                    >
+                        <span class="btn-icon">✦</span>
+                        <span class="btn-text">Analyze News</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!--
+                 LOADING
+             -->
+
+            <div class="loading-card" id="loadingCard">
+
+                <div class="loader"></div>
+
+                <div>
+                    <h3>Analyzing the article...</h3>
+                    <p>
+                        TF-IDF + Logistic Regression is processing
+                        the text.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!--
+                 RESULT
+             -->
+
+            <div class="result-card" id="resultCard">
+
+                <div class="result-header">
+
+                    <div>
+                        <span class="mini-label">ANALYSIS RESULT</span>
+
+                        <h2 id="resultTitle">
+                            Prediction
+                        </h2>
+                    </div>
+
+                    <div class="result-icon" id="resultIcon">
+                        ?
+                    </div>
+
+                </div>
+
+
+                <div class="result-main">
+
+                    <div class="result-status" id="resultStatus">
+                        —
+                    </div>
+
+                    <p id="resultDescription">
+                        Your prediction will appear here.
+                    </p>
+
+                </div>
+
+
+                <div class="confidence-area">
+
+                    <div class="confidence-top">
+                        <span>Model Confidence</span>
+                        <strong id="confidenceValue">—</strong>
+                    </div>
+
+                    <div class="confidence-bar">
+                        <div
+                            class="confidence-fill"
+                            id="confidenceFill"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             STATISTICS
+         -->
+
+        <section class="stats-section" id="insights">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">◎</div>
+
+                <div>
+                    <strong>98.99%</strong>
+                    <span>Test Accuracy</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">◈</div>
+
+                <div>
+                    <strong>44,898</strong>
+                    <span>News Articles</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">⌁</div>
+
+                <div>
+                    <strong>193K+</strong>
+                    <span>TF-IDF Features</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">AI</div>
+
+                <div>
+                    <strong>Logistic</strong>
+                    <span>Regression Model</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             HOW IT WORKS
+         -->
+
+        <section class="how-section">
+
+            <div class="section-heading center">
+
+                <div>
+
+                    <span class="mini-label">
+                        HOW IT WORKS
+                    </span>
+
+                    <h2>
+                        From article to
+                        <span>prediction.</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step-card">
+
+                    <div class="step-number">01</div>
+
+                    <div class="step-icon">▤</div>
+
+                    <h3>Enter News</h3>
+
+                    <p>
+                        Paste a headline or news article
+                        into the analyzer.
+                    </p>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">02</div>
+
+                    <div class="step-icon">⌁</div>
+
+                    <h3>Process Text</h3>
+
+                    <p>
+                        The text is cleaned and converted
+                        into TF-IDF features.
+                    </p>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">03</div>
+
+                    <div class="step-icon">✦</div>
+
+                    <h3>ML Prediction</h3>
+
+                    <p>
+                        Logistic Regression analyzes
+                        the learned text patterns.
+                    </p>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">04</div>
+
+                    <div class="step-icon">◉</div>
+
+                    <h3>View Result</h3>
+
+                    <p>
+                        The system displays a Fake or
+                        Real classification.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!--
+             ABOUT
+         -->
+
+        <section class="about-section" id="about">
+
+            <div class="about-content">
+
+                <span class="mini-label">
+                    ABOUT THE PROJECT
+                </span>
+
+                <h2>
+                    Built with
+                    <span>Machine Learning.</span>
+                </h2>
+
+                <p>
+                    NewsVerify AI is a machine-learning based
+                    Fake News Detection System. It uses TF-IDF
+                    text vectorization and Logistic Regression
+                    to classify news articles according to
+                    patterns learned from the training dataset.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span>Python</span>
+                    <span>Scikit-learn</span>
+                    <span>TF-IDF</span>
+                    <span>Logistic Regression</span>
+                    <span>FastAPI</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-warning">
+
+                <div class="warning-icon">!</div>
+
+                <div>
+
+                    <h3>Important Note</h3>
+
+                    <p>
+                        This system is an ML-based classifier.
+                        It does not independently verify facts
+                        from the internet. Predictions depend
+                        on patterns learned from the training
+                        dataset.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--
+         FOOTER
+    -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ✦ NewsVerify AI
+        </div>
+
+        <p>
+            Machine Learning Based Fake News Detection System
+        </p>
+
+        <span>
+            Built for academic project purposes
+        </span>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
+
